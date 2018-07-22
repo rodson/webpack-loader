@@ -1,5 +1,5 @@
 .test {
-  color: red;
+  color: green;
   font-size: 12px;
-  background-image: url('./pso.jpeg');
+  /* background-image: url('./pso.jpeg'); */
 }

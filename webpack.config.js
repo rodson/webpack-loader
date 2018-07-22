@@ -4,15 +4,21 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  // mode: 'production',
-  mode: 'development',
+  mode: 'production',
+  // mode: 'development',
   entry: {
-    index: './src/index.js'
+    index: './src/index.js',
+    // another: './src/another.js'
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist')
   },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all'
+  //   }
+  // },
   // devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
@@ -27,7 +33,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env', 'react']
+            presets: ['env', 'react'],
+            plugins: ["syntax-dynamic-import"]
           }
         }
       },
@@ -49,9 +56,12 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Output management',
+      title: 'Caching',
       template: 'src/index.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      // 'process.env.NODE_ENV': JSON.stringify('production')
+    })
   ]
 };
