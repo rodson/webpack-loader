@@ -56,8 +56,17 @@ module.exports = {
         use: [
           'file-loader'
         ]
+      },
+      {
+        test: /\.json/,
+        use: [
+          'my-loader'
+        ]
       }
     ]
+  },
+  resolveLoader: {
+    modules: ['node_modules', path.resolve(__dirname, 'loaders')]
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
