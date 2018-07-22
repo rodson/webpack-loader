@@ -8,7 +8,7 @@ module.exports = {
   // mode: 'development',
   entry: {
     index: './src/index.js',
-    // another: './src/another.js'
+    another: './src/another.js'
   },
   output: {
     filename: '[name].[chunkhash].js',
@@ -35,8 +35,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: [path.resolve(__dirname, 'src')],
-        exclude: ['node_modules'],
+        include: path.resolve(__dirname, 'src'),
         use: {
           loader: 'babel-loader',
           options: {
@@ -62,6 +61,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
+    new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       title: 'Caching',
       template: 'src/index.html'

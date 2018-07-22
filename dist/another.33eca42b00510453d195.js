@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{"Tfg+":function(o,n,s){"use strict";console.log("another")}},[["Tfg+",0]]]);

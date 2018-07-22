@@ -4,7 +4,9 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Print from './pring';
+import hello from './mi';
 
+hello();
 Print('this is print module');
 
 data.a = 6;
