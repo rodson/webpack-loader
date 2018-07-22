@@ -3,6 +3,9 @@ import data from './test.json';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Print from './pring';
+
+Print('this is print module');
 
 data.a = 6;
 console.log(data);
